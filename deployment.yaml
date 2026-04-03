@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: java-test-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: java-test-app
+  template:
+    metadata:
+      labels:
+        app: java-test-app
+    spec:
+      containers:
+      - name: java-test-app
+        image: sandhiya1701/java-test-app:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
